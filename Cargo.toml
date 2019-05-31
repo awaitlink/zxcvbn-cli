@@ -1,0 +1,22 @@
+[package]
+name = "zxcvbn-cli"
+version = "1.0.0"
+authors = ["Artem Varaksa <aymfst@gmail.com>"]
+description = "A simple CLI tool to check password strength using zxcvbn."
+exclude = ["img/*"]
+homepage = "https://github.com/u32i64/zxcvbn-cli#readme"
+repository = "https://github.com/u32i64/zxcvbn-cli"
+readme = "README.md"
+keywords = ["zxcvbn", "password", "strength", "check"]
+categories = ["command-line-utilities"]
+license = "MIT"
+edition = "2018"
+
+[[bin]]
+path = "src/bin/main.rs"
+name = "zxcvbn"
+
+[dependencies]
+zxcvbn = "1.0.1"
+clap = "2.33.0"
+colored = "1.8.0"
