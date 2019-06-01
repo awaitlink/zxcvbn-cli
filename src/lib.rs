@@ -1,4 +1,6 @@
 //! A simple CLI tool to check password strength using zxcvbn.
+//!
+//! See [README.md](https://github.com/u32i64/zxcvbn-cli#readme) for more information.
 #![deny(missing_docs)]
 
 use colored::Colorize;
