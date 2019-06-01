@@ -1,6 +1,6 @@
 [package]
 name = "zxcvbn-cli"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Artem Varaksa <aymfst@gmail.com>"]
 description = "A simple CLI tool to check password strength using zxcvbn."
 exclude = ["img/*"]

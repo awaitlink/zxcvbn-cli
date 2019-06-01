@@ -17,10 +17,6 @@ macro_rules! info {
 
 /// Runs the main logic of the app.
 pub fn run(password: &str) -> Result<(), String> {
-    if !password.is_ascii() {
-        return Err("only ASCII passwords are supported".into());
-    }
-
     if password.is_empty() {
         return Err("empty password".into());
     }
