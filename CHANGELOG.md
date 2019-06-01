@@ -6,4 +6,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.0] - 2019-06-01
 ### First Release
 
-[1.0.0]: https://github.com/u32i64/zxcvbn-cli/releases/tag/v0.0.1
+[1.0.0]: https://github.com/u32i64/zxcvbn-cli/releases/tag/v1.0.0
