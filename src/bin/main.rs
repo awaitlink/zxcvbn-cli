@@ -1,4 +1,5 @@
 use clap::{crate_authors, crate_description, crate_name, crate_version, App, AppSettings, Arg};
+use colored::Colorize;
 
 fn main() {
     let matches = App::new(crate_name!())
@@ -8,25 +9,22 @@ fn main() {
         .settings(&[AppSettings::UnifiedHelpMessage, AppSettings::ColoredHelp])
         .arg(
             Arg::with_name("password")
-                .help("Password that you want to test")
-                .required(true)
+                .help("Password that you want to test. If empty, will be asked via stdin.")
                 .index(1),
-        )
-        .arg(
-            Arg::with_name("inputs")
-                .help("Other inputs, such as username, email, name")
-                .multiple(true)
-                .index(2),
         )
         .get_matches();
 
-    let password = matches.value_of("password").unwrap();
-    let input = matches
-        .values_of("input")
-        .unwrap_or_default()
-        .collect::<Vec<_>>();
+    let password = match matches.value_of("password") {
+        Some(password) => password.to_string(),
+        None => {
+            let password = rpassword::prompt_password_stdout(&"➜ ".magenta().to_string())
+                .expect("unable to read password");
+            crossterm_cursor::cursor().move_up(1);
+            password
+        }
+    };
 
-    if let Err(e) = zxcvbn_cli::run(password, input) {
-        eprintln!("{}", e);
+    if let Err(e) = zxcvbn_cli::run(password.as_str()) {
+        eprintln!("{} {}", "error:".red().bold(), e);
     }
 }
