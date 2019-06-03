@@ -12,6 +12,12 @@ fn main() {
                 .help("Password that you want to test. If empty, will be asked via stdin.")
                 .index(1),
         )
+        .arg(
+            Arg::with_name("secure")
+                .short("s")
+                .long("secure")
+                .help("Do not output password and sequence."),
+        )
         .get_matches();
 
     let password = match matches.value_of("password") {
@@ -24,7 +30,9 @@ fn main() {
         }
     };
 
-    if let Err(e) = zxcvbn_cli::run(password.as_str()) {
+    let hide_password = matches.is_present("secure");
+
+    if let Err(e) = zxcvbn_cli::run(password.as_str(), hide_password) {
         eprintln!("{} {}", "error:".red().bold(), e);
     }
 }

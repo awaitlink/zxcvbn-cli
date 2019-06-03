@@ -17,14 +17,23 @@ $ cargo install zxcvbn-cli -f
 ```
 
 ### Usage
-```console
-$ zxcvbn [password]
-```
-or just
-```console
-$ zxcvbn
-```
-and enter the password via stdin.
+There are multiple ways to use `zxcvbn-cli`:
+
+1. Supply password via argument:
+    ```console
+    $ zxcvbn [password]
+    ```
+
+2. Enter password via stdin:
+    ```console
+    $ zxcvbn
+    ```
+
+3. Enter password via stdin, but don't show it or the sequence in output:
+    ```console
+    $ zxcvbn -s
+    ```
+
 
 ### Examples
 ```console

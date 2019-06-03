@@ -16,20 +16,29 @@ macro_rules! info {
 }
 
 /// Runs the main logic of the app.
-pub fn run(password: &str) -> Result<(), String> {
+pub fn run(password: &str, hide_password: bool) -> Result<(), String> {
     if password.is_empty() {
         return Err("empty password".into());
     }
 
     let entropy = zxcvbn::zxcvbn(password, &[]).unwrap();
 
-    print_password_tokenized(&entropy);
+    print!("{} ", "➜".magenta());
+    if hide_password {
+        print!("{}", "<hidden>".magenta());
+    } else {
+        print_password_tokenized(&entropy);
+    }
+    println!();
+
     main_information(&entropy);
     guesses(&entropy);
     crack_time(&entropy);
 
-    info!("sequence");
-    sequence(entropy.sequence.clone(), 0);
+    if !hide_password {
+        info!("sequence");
+        sequence(entropy.sequence.clone(), 0);
+    }
 
     println!();
     println!(
@@ -41,8 +50,6 @@ pub fn run(password: &str) -> Result<(), String> {
 }
 
 fn print_password_tokenized(entropy: &Entropy) {
-    print!("{} ", "➜".magenta());
-
     for (i, token) in entropy.sequence.iter().map(|m| &m.token).enumerate() {
         print!(
             "{}",
@@ -53,8 +60,6 @@ fn print_password_tokenized(entropy: &Entropy) {
             }
         );
     }
-
-    println!();
 }
 
 fn main_information(entropy: &Entropy) {
