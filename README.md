@@ -1,7 +1,7 @@
 # ❮zxcvbn-cli❯
 
-[![version][badges/version]][crates.io/b0x]
-[![downloads][badges/downloads]][crates.io/b0x]
+[![version][badges/version]][crates.io/zxcvbn-cli]
+[![downloads][badges/downloads]][crates.io/zxcvbn-cli]
 [![license][badges/license]][license]
 
 A simple CLI tool to check password strength using [shssoichiro/zxcvbn-rs](https://github.com/shssoichiro/zxcvbn-rs), which is a Rust port of [dropbox/zxcvbn](https://github.com/dropbox/zxcvbn).
@@ -51,7 +51,7 @@ $ zxcvbn correcthorsebatterystaple
 ```
 [![img/correcthorsebatterystaple]][img/correcthorsebatterystaple]
 
-[crates.io/b0x]: https://crates.io/crates/zxcvbn-cli
+[crates.io/zxcvbn-cli]: https://crates.io/crates/zxcvbn-cli
 
 [license]: https://github.com/u32i64/zxcvbn-cli/blob/master/LICENSE
 [changelog]: https://github.com/u32i64/zxcvbn-cli/blob/master/CHANGELOG.md
