@@ -92,9 +92,7 @@ fn main_information(entropy: &Entropy) {
             for (i, suggestion) in feedback.suggestions.iter().enumerate() {
                 println!(
                     "{} {}",
-                    if i < i_last { "  ├" } else { "  └" }
-                        .bright_green()
-                        .bold(),
+                    if i < i_last { "  ├" } else { "  └" }.bright_green().bold(),
                     suggestion
                 );
             }
