@@ -37,7 +37,7 @@ pub fn run(password: &str, hide_password: bool) -> Result<(), String> {
 
     if !hide_password {
         info!("sequence");
-        sequence(entropy.sequence().clone(), 0);
+        sequence(entropy.sequence(), 0);
     }
 
     println!();
