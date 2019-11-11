@@ -25,7 +25,7 @@ fn main() {
         None => {
             let password = rpassword::prompt_password_stdout(&"➜ ".magenta().to_string())
                 .expect("unable to read password");
-            crossterm_cursor::cursor().move_up(1);
+            crossterm_cursor::cursor().move_up(1).expect("unable to move terminal cursor up");
             password
         }
     };

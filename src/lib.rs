@@ -37,20 +37,20 @@ pub fn run(password: &str, hide_password: bool) -> Result<(), String> {
 
     if !hide_password {
         info!("sequence");
-        sequence(entropy.sequence.clone(), 0);
+        sequence(entropy.sequence().clone(), 0);
     }
 
     println!();
     println!(
         "{}",
-        format!("zxcvbn done in {} ms", entropy.calc_time).bright_black()
+        format!("zxcvbn done in {} ms", entropy.calculation_time().as_millis()).bright_black()
     );
 
     Ok(())
 }
 
 fn print_password_tokenized(entropy: &Entropy) {
-    for (i, token) in entropy.sequence.iter().map(|m| &m.token).enumerate() {
+    for (i, token) in entropy.sequence().iter().map(|m| &m.token).enumerate() {
         print!(
             "{}",
             if (i + 1) % 2 == 0 {
@@ -67,7 +67,7 @@ fn main_information(entropy: &Entropy) {
         "score",
         format!(
             "{}{}",
-            match entropy.score {
+            match entropy.score() {
                 0 => "0".bright_red(),
                 1 => "1".red(),
                 2 => "2".yellow(),
@@ -80,16 +80,16 @@ fn main_information(entropy: &Entropy) {
         .bold()
     );
 
-    if let Some(feedback) = entropy.feedback.clone() {
-        if let Some(warning) = feedback.warning {
+    if let Some(feedback) = entropy.feedback().clone() {
+        if let Some(warning) = feedback.warning() {
             println!("{} {}", "warning".bright_yellow().bold(), warning);
         }
 
-        if !feedback.suggestions.is_empty() {
+        if !feedback.suggestions().is_empty() {
             println!("{}", "suggestions".bright_green().bold());
 
-            let i_last = feedback.suggestions.len() - 1;
-            for (i, suggestion) in feedback.suggestions.iter().enumerate() {
+            let i_last = feedback.suggestions().len() - 1;
+            for (i, suggestion) in feedback.suggestions().iter().enumerate() {
                 println!(
                     "{} {}",
                     if i < i_last { "  ├" } else { "  └" }.bright_green().bold(),
@@ -103,7 +103,7 @@ fn main_information(entropy: &Entropy) {
 fn guesses(entropy: &Entropy) {
     info!(
         "guesses",
-        "1e".to_string() + &entropy.guesses_log10.to_string()
+        "1e".to_string() + &entropy.guesses_log10().to_string()
     );
 }
 
@@ -111,7 +111,7 @@ macro_rules! fmt_crack_time {
     ($entropy:expr, $name:ident, $desc:expr) => {
         format!(
             "{} {}",
-            $entropy.crack_times_display.$name,
+            $entropy.crack_times().$name().to_string(),
             $desc.bright_black(),
         )
     };
@@ -186,7 +186,7 @@ macro_rules! pattern_info {
     };
 }
 
-fn sequence(seq: Vec<Match>, indent: usize) {
+fn sequence(seq: &[Match], indent: usize) {
     use zxcvbn::matching::patterns::MatchPattern::*;
 
     for (i, part) in seq.iter().enumerate() {
@@ -205,20 +205,11 @@ fn sequence(seq: Vec<Match>, indent: usize) {
                 pattern_info!(type "dictionary", indent);
                 pattern_info!("word", pattern.matched_word, indent);
                 pattern_info!("rank", pattern.rank, indent);
-                pattern_info!("dictionary", pattern.dictionary_name, indent);
+                pattern_info!("dictionary", format!("{:?}", pattern.dictionary_name), indent);
                 pattern_info!("reversed?", pattern.reversed, indent);
                 pattern_info!("l33t?", pattern.l33t, indent);
                 if let Some(substitutions) = &pattern.sub_display {
-                    let fixed_substitutions = substitutions
-                        .chars()
-                        .map(|c| c.to_string())
-                        .collect::<Vec<_>>()
-                        .chunks_exact(6)
-                        .map(|slice| slice.join(""))
-                        .collect::<Vec<_>>()
-                        .join(", ");
-
-                    pattern_info!("substitutions", fixed_substitutions, indent);
+                    pattern_info!("substitutions", substitutions, indent);
                 }
                 pattern_info!("uppercase variations", pattern.uppercase_variations, indent);
                 pattern_info!("l33t variations", pattern.l33t_variations, indent);
@@ -234,7 +225,7 @@ fn sequence(seq: Vec<Match>, indent: usize) {
                 pattern_info!(type "repeat", indent);
                 pattern_info!("base token", pattern.base_token, indent);
                 pattern_info!("base matches", "", indent);
-                sequence(pattern.base_matches.clone(), indent + 2);
+                sequence(&pattern.base_matches, indent + 2);
                 pattern_info!("base guesses", pattern.base_guesses, indent);
                 pattern_info!(last "repeat count", pattern.repeat_count, indent);
             }
