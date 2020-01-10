@@ -81,7 +81,7 @@ dependencies = [
 
 [[package]]
 name = "colored"
-version = "1.9.1"
+version = "1.9.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "atty 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -538,7 +538,7 @@ name = "zxcvbn-cli"
 version = "2.0.0"
 dependencies = [
  "clap 2.33.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "colored 1.9.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "colored 1.9.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "crossterm_cursor 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rpassword 4.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "zxcvbn 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -555,7 +555,7 @@ dependencies = [
 "checksum cfg-if 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)" = "4785bdd1c96b2a846b2bd7cc02e86b6b3dbf14e7e53446c4f54c92a361040822"
 "checksum chrono 0.4.9 (registry+https://github.com/rust-lang/crates.io-index)" = "e8493056968583b0193c1bb04d6f7684586f3726992d6c573261941a895dbd68"
 "checksum clap 2.33.0 (registry+https://github.com/rust-lang/crates.io-index)" = "5067f5bb2d80ef5d68b4c87db81601f0b75bca627bc2ef76b141d7b846a3c6d9"
-"checksum colored 1.9.1 (registry+https://github.com/rust-lang/crates.io-index)" = "f930f8b286023ed451756fe2527d73484d667adf9e905e9932e81d52996a343a"
+"checksum colored 1.9.2 (registry+https://github.com/rust-lang/crates.io-index)" = "8815e2ab78f3a59928fc32e141fbeece88320a240e43f47b2fd64ea3a88a5b3d"
 "checksum crossterm_cursor 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c48e70d4c84ca3080e43f95bcc69fbea4750dd8ae7e864f54ab2847c9fa842fb"
 "checksum crossterm_input 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "39fafa96a623903f0d9232a13ee43f69334caa770fb412f4319772a9db25952c"
 "checksum crossterm_screen 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)" = "a08dfba7fade62a6c2c48ad6451e288f15fd9ffa640078fc4b08948e81d19db7"
