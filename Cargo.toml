@@ -19,6 +19,6 @@ name = "zxcvbn"
 [dependencies]
 zxcvbn = "2.0.1"
 clap = "2.33.3"
-colored = "1.9.3"
+colored = "2.0.0"
 rpassword = "4.0.5"
 crossterm_cursor = "0.4.0"
