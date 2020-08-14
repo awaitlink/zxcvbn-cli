@@ -67,7 +67,7 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "2.33.2"
+version = "2.33.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "ansi_term 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -537,7 +537,7 @@ dependencies = [
 name = "zxcvbn-cli"
 version = "2.0.0"
 dependencies = [
- "clap 2.33.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "clap 2.33.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "colored 1.9.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "crossterm_cursor 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rpassword 4.0.5 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -554,7 +554,7 @@ dependencies = [
 "checksum bitflags 1.0.4 (registry+https://github.com/rust-lang/crates.io-index)" = "228047a76f468627ca71776ecdebd732a3423081fcf5125585bcd7c49886ce12"
 "checksum cfg-if 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)" = "4785bdd1c96b2a846b2bd7cc02e86b6b3dbf14e7e53446c4f54c92a361040822"
 "checksum chrono 0.4.9 (registry+https://github.com/rust-lang/crates.io-index)" = "e8493056968583b0193c1bb04d6f7684586f3726992d6c573261941a895dbd68"
-"checksum clap 2.33.2 (registry+https://github.com/rust-lang/crates.io-index)" = "10040cdf04294b565d9e0319955430099ec3813a64c952b86a41200ad714ae48"
+"checksum clap 2.33.3 (registry+https://github.com/rust-lang/crates.io-index)" = "37e58ac78573c40708d45522f0d80fa2f01cc4f9b4e2bf749807255454312002"
 "checksum colored 1.9.3 (registry+https://github.com/rust-lang/crates.io-index)" = "f4ffc801dacf156c5854b9df4f425a626539c3a6ef7893cc0c5084a23f0b6c59"
 "checksum crossterm_cursor 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c48e70d4c84ca3080e43f95bcc69fbea4750dd8ae7e864f54ab2847c9fa842fb"
 "checksum crossterm_input 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "39fafa96a623903f0d9232a13ee43f69334caa770fb412f4319772a9db25952c"
