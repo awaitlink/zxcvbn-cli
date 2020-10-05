@@ -43,7 +43,11 @@ pub fn run(password: &str, hide_password: bool) -> Result<(), String> {
     println!();
     println!(
         "{}",
-        format!("zxcvbn done in {} ms", entropy.calculation_time().as_millis()).bright_black()
+        format!(
+            "zxcvbn done in {} ms",
+            entropy.calculation_time().as_millis()
+        )
+        .bright_black()
     );
 
     Ok(())
@@ -205,7 +209,11 @@ fn sequence(seq: &[Match], indent: usize) {
                 pattern_info!(type "dictionary", indent);
                 pattern_info!("word", pattern.matched_word, indent);
                 pattern_info!("rank", pattern.rank, indent);
-                pattern_info!("dictionary", format!("{:?}", pattern.dictionary_name), indent);
+                pattern_info!(
+                    "dictionary",
+                    format!("{:?}", pattern.dictionary_name),
+                    indent
+                );
                 pattern_info!("reversed?", pattern.reversed, indent);
                 pattern_info!("l33t?", pattern.l33t, indent);
                 if let Some(substitutions) = &pattern.sub_display {
