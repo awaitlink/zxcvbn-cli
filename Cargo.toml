@@ -1,7 +1,7 @@
 [package]
 name = "zxcvbn-cli"
-version = "2.0.0"
-authors = ["Artem Varaksa <aymfst@gmail.com>"]
+version = "2.0.1"
+authors = ["Artem Varaksa <artvaraksa@gmail.com>"]
 description = "A simple CLI tool to check password strength using zxcvbn."
 exclude = ["img/*"]
 homepage = "https://github.com/u32i64/zxcvbn-cli#readme"
@@ -19,6 +19,6 @@ name = "zxcvbn"
 [dependencies]
 zxcvbn = "2.0.1"
 clap = "2.33.3"
-colored = "1.9.3"
-rpassword = "4.0.5"
+colored = "2.0.0"
+rpassword = "5.0.0"
 crossterm_cursor = "0.4.0"
