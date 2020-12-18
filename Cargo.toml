@@ -17,7 +17,7 @@ path = "src/bin/main.rs"
 name = "zxcvbn"
 
 [dependencies]
-zxcvbn = "2.1.0"
+zxcvbn = "2.1.1"
 clap = "2.33.3"
 colored = "2.0.0"
 rpassword = "5.0.0"
