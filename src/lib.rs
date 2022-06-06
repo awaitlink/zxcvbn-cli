@@ -186,7 +186,7 @@ macro_rules! pattern_info {
             " ".repeat($indent),
             "└".bright_blue(),
             $name.blue()
-        );
+        )
     };
 }
 
