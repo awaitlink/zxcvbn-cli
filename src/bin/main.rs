@@ -25,7 +25,7 @@ fn main() {
     let password = match matches.get_one::<String>("password") {
         Some(password) => password.to_string(),
         None => {
-            let password = rpassword::prompt_password(&"➜ ".magenta().to_string())
+            let password = rpassword::prompt_password("➜ ".magenta().to_string())
                 .expect("unable to read password");
 
             let mut stdout = io::stdout();
