@@ -17,11 +17,12 @@ fn main() {
             Arg::new("secure")
                 .short('s')
                 .long("secure")
+                .action(clap::ArgAction::SetTrue)
                 .help("Do not output password and sequence."),
         )
         .get_matches();
 
-    let password = match matches.value_of("password") {
+    let password = match matches.get_one::<String>("password") {
         Some(password) => password.to_string(),
         None => {
             let password = rpassword::prompt_password(&"➜ ".magenta().to_string())
@@ -39,7 +40,7 @@ fn main() {
         }
     };
 
-    let hide_password = matches.is_present("secure");
+    let hide_password = matches.get_one::<bool>("secure").copied().unwrap_or(false);
 
     if let Err(e) = zxcvbn_cli::run(password.as_str(), hide_password) {
         eprintln!("{} {}", "error:".red().bold(), e);
